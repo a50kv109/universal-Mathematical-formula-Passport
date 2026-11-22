@@ -1,0 +1,6 @@
+{
+  "name": "UMFP Lab - Universal Mathematical Formula Passport",
+  "description": "Interactive research laboratory for mathematical formula passportization, structural analysis, and logical classification.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
