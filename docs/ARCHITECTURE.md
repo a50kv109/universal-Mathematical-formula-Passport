@@ -19,7 +19,7 @@ src/
 ├── data/umfpCatalog.ts      # UI preset formulas for the Research Lab interface
 ├── components/AstTreeView.tsx
 └── App.tsx                  # Interactive UMFP Lab UI
-server.ts                    # Express + Vite dev server + optional unverified Gemini endpoints
+server.ts                    # Express server (Vite dev middleware & dist/ production static serving) + optional unverified Gemini endpoints
 ```
 
 ---

@@ -1,14 +1,16 @@
 # UMFP Insight Bank — Specification (`0.1.x`)
 
-> **A curated repository of verified mathematical patterns, geometric extensions, derived relations, and explicitly bounded analogies serving as intellectual orientation landmarks for AI agents.**
+**Status:** `Initial Experimental Knowledge Seed` *(Curated Pilot Corpus — Under Calibration)*
 
-[Index of Entries](./INDEX.md) · [UMFP Core Architecture](../docs/ARCHITECTURE.md) · [Formula Catalog (Engine Demo)](../docs/FORMULA_CATALOG.md)
+> **A small, curated repository of verified mathematical patterns, geometric extensions, derived relations, and explicitly bounded analogies serving as intellectual orientation landmarks for AI agents — not a universal mathematical knowledge base.**
+
+[Index of Entries](./INDEX.md) · [Research Status](../docs/RESEARCH_STATUS.md) · [UMFP Core Architecture](../docs/ARCHITECTURE.md) · [Formula Catalog (Engine Demo)](../docs/FORMULA_CATALOG.md)
 
 ---
 
 ## 1. Purpose and Architectural Boundary
 
-**UMFP Insight Bank** complements the deterministic `umfp-core` engine without modifying or replacing it:
+**UMFP Insight Bank** is an `Initial Experimental Knowledge Seed` that complements the deterministic `umfp-core` engine without modifying or replacing it:
 
 ```text
 Formula ─▶ UMFP Core (src/umfp-core) ─▶ Formula Passport ─▶ AI Agent ◀─▶ Insight Bank (insight-bank/)
@@ -27,7 +29,18 @@ Formula ─▶ UMFP Core (src/umfp-core) ─▶ Formula Passport ─▶ AI Agent
 
 ---
 
-## 2. Four Thematic Categories
+## 2. Two Independent Dimensions of Verification
+
+Every entry in `insight-bank/` explicitly separates two independent checks:
+
+1. **Mathematical Verification** — confirms whether the mathematical theorem or derivation itself is valid under the stated applicability conditions.
+2. **UMFP Passport Reproducibility** — confirms that the quoted `FormulaPassport` excerpt was actually reproduced by running `generatePassport(...)` on `src/umfp-core/`.
+
+> **Critical Rule:** Having a reproducible UMFP passport for an expression is **not** a mathematical proof of the theorem, and an Insight Bank derivation **does not** reclassify or overwrite the `domains` / `domainClassification` output of `UMFP Core`.
+
+---
+
+## 3. Four Thematic Categories
 
 Every insight belongs to one primary category:
 
@@ -38,20 +51,22 @@ Every insight belongs to one primary category:
 
 ---
 
-## 3. Credibility Status System
+## 4. Credibility Status System
 
-To prevent interesting heuristics from masquerading as proven theorems, every entry MUST carry exactly one credibility status:
+To prevent interesting heuristics from masquerading as proven theorems, every entry MUST carry **one** explicit credibility status:
 
 | Status | Meaning | Requirement |
 | :--- | :--- | :--- |
-| `VERIFIED` | Mathematically proven theorem or rigorously established result | Complete proof or canonical reference provided |
-| `DERIVED` | Strictly derived from established theorems | Step-by-step derivation included in the entry |
+| `VERIFIED` | Foundational theorem or independently established result with full proof | Complete proof or canonical reference provided |
+| `DERIVED` | Strictly derived from other established theorems | Step-by-step derivation included in the entry |
 | `CONJECTURE` | Open hypothesis or unverified pattern | Must explicitly state that no proof exists |
-| `ANALOGY` | Useful structural or conceptual comparison | Must explicitly warn that it is **not** a mathematical proof |
+| `ANALOGY` | Useful structural or conceptual comparison without equivalence claim | Must explicitly warn that it is **not** a mathematical proof |
+
+> **Status Discipline:** These four statuses **must not be merged** and **must never be interpreted as UMFP classifier confidence levels** (`domainClassification.confidence` in `FormulaPassport`). A `DERIVED` entry is mathematically rigorous; it simply records that the result is proved as a consequence of prior theorems (such as `PTH-001`).
 
 ---
 
-## 4. Two Distinct Link Types (`Relations`)
+## 5. Two Distinct Link Types (`Relations`)
 
 Inside each entry, links to other insights or expressions are strictly partitioned into:
 
@@ -60,7 +75,7 @@ Inside each entry, links to other insights or expressions are strictly partition
 
 ---
 
-## 5. Standard 10-Section Entry Template
+## 6. Standard 10-Section Entry Template
 
 Every Markdown file inside `insight-bank/` MUST follow this unified 10-section structure:
 
@@ -72,12 +87,12 @@ Every Markdown file inside `insight-bank/` MUST follow this unified 10-section s
 6. **Условия применимости** (Explicit Applicability Conditions)
 7. **Примеры** (Worked / Numerical Verification Examples)
 8. **Известные ограничения** (Known Limitations & Failure Modes — where the pattern breaks)
-9. **Статус проверки и связи** (Verification Status, `Mathematical equivalence` vs. `Structural analogy`)
-10. **Связанные паспорта UMFP и польза для агента** (Actual `UMFP 0.1.x` `generatePassport` outputs + Concrete AI-Agent Orientation Guidance)
+9. **Статус проверки и связи** (Mathematical Verification status, `Mathematical equivalence` vs. `Structural analogy`)
+10. **Связанные паспорта UMFP и польза для агента** (UMFP Passport Reproducibility — actual `0.1.x` `generatePassport` outputs + Concrete AI-Agent Orientation Guidance)
 
 ---
 
-## 6. Directory Layout
+## 7. Directory Layout
 
 ```text
 insight-bank/

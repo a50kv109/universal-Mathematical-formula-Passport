@@ -1,8 +1,12 @@
 # UMFP — Universal Mathematical Formula Passport (`0.1.x`)
 
-> **An intermediate mathematical orientation and passportization layer between raw mathematical notation and AI-agent reasoning.**
+**Project status:** Experimental Research Release (`0.1.x` / Pre-release / Under Calibration)
 
-[Русская версия (README.ru.md)](./README.ru.md) · [Project Purpose](./docs/PROJECT_PURPOSE.md) · [Architecture](./docs/ARCHITECTURE.md) · [Specification](./docs/SPECIFICATION.md) · [Roadmap](./docs/ROADMAP.md) · [Formula Catalog (24 Verified Examples)](./docs/FORMULA_CATALOG.md) · [Insight Bank](./insight-bank/README.md)
+> **UMFP — Universal Mathematical Formula Passport is an experimental system that helps AI agents identify, structurally classify, and contextualize mathematical formulas. Its Insight Bank provides a compact collection of mathematically verified and derived reference patterns that support further investigation without claiming to be a final source of mathematical truth.**
+>
+> **UMFP does not claim ownership of mathematical ideas. It provides a common structural language for describing mathematical formulas — freely usable by AI agents and researchers in their own work.**
+
+[Русская версия (README.ru.md)](./README.ru.md) · [Research Status](./docs/RESEARCH_STATUS.md) · [Project Purpose](./docs/PROJECT_PURPOSE.md) · [Architecture](./docs/ARCHITECTURE.md) · [Specification](./docs/SPECIFICATION.md) · [Roadmap](./docs/ROADMAP.md) · [Formula Catalog (24 Verified Examples)](./docs/FORMULA_CATALOG.md) · [Insight Bank](./insight-bank/README.md) · [License (Apache-2.0)](./LICENSE)
 
 ---
 
@@ -39,13 +43,19 @@ UMFP solves this by producing a **deterministic, inspectable passport** that exp
 
 ---
 
-## 4. How an AI Agent Can Use UMFP
+## 4. Architecture: UMFP Core + Insight Bank & AI-Agent Workflow
 
-UMFP acts as a **structured orientation anchor**, not an automated mathematician:
+UMFP separates deterministic formula passportization from mathematical knowledge landmarks:
 
 ```text
-Formula ─▶ UMFP ─▶ Formula Passport ─▶ AI Agent ─▶ Further Investigation
+Formula ─▶ UMFP Core (src/umfp-core) ─▶ Formula Passport ─▶ AI Agent ◀─▶ Insight Bank (insight-bank/)
+                                                                │
+                                                                ▼
+                                                   Further Investigation
 ```
+
+- **UMFP Core (`src/umfp-core/`):** Deterministically produces `FormulaPassport` (AST, constructs, logical classes, `ALGEBRA | GEOMETRY | UNKNOWN` domain, Q2 scopes, Q3 domain provenance). Never reads `insight-bank/` and never alters its classification heuristically.
+- **Insight Bank (`insight-bank/`):** A standalone Markdown **`Initial Experimental Knowledge Seed`** (currently 6 pilot entries in `PYTHAGOREAN FAMILY`) offering proven theorems, derived geometric/algebraic extensions, explicit applicability conditions, and bounded analogies. **Does not overwrite or reclassify any `FormulaPassport`.**
 
 ### Intended Integration Workflow *(Conceptual Pattern — External Search/Agents Are Not Built Into `0.1.x`)*
 
@@ -54,10 +64,16 @@ Formula ─▶ UMFP ─▶ Formula Passport ─▶ AI Agent ─▶ Further Inves
 3. **Inspect Level A & Level B:** Identify structural constructs (`FRACTION`, `INTEGRAL`, `MATRIX`, etc.) and logical organizations.
 4. **Inspect Level C, variables & provenance:** Check `domains` (`ALGEBRA | GEOMETRY | UNKNOWN`), `freeVariables` vs `boundVariables`, `requestedNumberDomain` vs `requiredNumberDomain` vs `effectiveNumberDomain`.
 5. **Inspect limits & uncertainties:** Read `constraints`, `validationErrors`, and `diagnostics` (e.g., `AMBIGUOUS_CONSTANT_OR_VARIABLE`, `NUMBER_DOMAIN_CONFLICT`, `RADICAL_INDEX_PARITY_UNKNOWN`).
-6. **Initiate follow-up:** If `domains[0] === 'UNKNOWN'` or symbolic CAS verification is required, the agent uses the passport as structured grounding to search literature, ask the user for declarations, or invoke a specialized external tool.
+6. **Consult Insight Bank & initiate follow-up:** If helpful, the agent compares the passport against `insight-bank/` landmarks, checks whether applicability conditions hold in the source text, or initiates external lookup / clarification when `domains[0] === 'UNKNOWN'` or symbolic CAS verification is required.
 7. **Return with context:** The agent reasons over the formula while respecting the constraints and boundaries recorded in the passport.
 
-> **Important:** The current repository implements the deterministic UMFP `0.1.x` core and a local Research Lab UI (with optional exploratory `/api/umfp/*` Gemini commentary endpoints in `server.ts`). External literature search, web lookup, and autonomous multi-step agents are **not** implemented in this repository.
+### How to Interpret Experimental Mathematical Insight Entries
+
+- **Four distinct credibility statuses:** `VERIFIED` (proven foundational theorem), `DERIVED` (strictly derived from prior theorems), `CONJECTURE` (unproven hypothesis), and `ANALOGY` (useful comparison, **not** equivalence). These must never be merged or treated as UMFP classifier confidence levels (`domainClassification.confidence`).
+- **Two independent verification layers:** **UMFP Passport Reproducibility** (a passport JSON comes from real `umfp-core` code) is strictly separate from **Mathematical Verification** (a mathematical proof holds under explicit conditions).
+- **Pilot scope:** The initial 6 entries (`PTH-001`–`PTH-005`, `GEO-PYT-002`) are an early experimental seed under calibration, not a complete mathematical encyclopedia.
+
+> **Important:** The current repository implements the deterministic UMFP `0.1.x` core, the pilot `insight-bank/` Markdown catalog, and a local Research Lab UI (with optional exploratory `/api/umfp/*` Gemini commentary endpoints in `server.ts`). External literature search, web lookup, and autonomous multi-step agents are **not** implemented in this repository.
 
 ---
 
@@ -119,9 +135,9 @@ npm install
 ```
 
 ### Run the Golden Test Suite (Core Verification)
-There is no custom `npm test` alias in `package.json`; run the deterministic golden test suite directly via `tsx`:
+Run all `123` deterministic core Golden Tests via `npm test`:
 ```bash
-npx tsx -e "import { runAllGoldenTests } from './src/umfp-core/golden-tests'; const s = runAllGoldenTests(); console.log(s.passed + '/' + s.total, 'failed=' + s.failed); if (s.failed) process.exit(1);"
+npm test
 ```
 
 ### TypeScript Check & Production Build
@@ -130,30 +146,83 @@ npm run lint
 npm run build
 ```
 
-### Run the Web Research Lab (Optional UI + Exploratory AI Endpoints)
+### Run the Web Research Lab (Development vs Production)
+Development mode (Express API + Vite middleware on `http://localhost:3000`):
 ```bash
 npm run dev
 ```
-This starts the Express + Vite server on `http://localhost:3000`.
+
+Production mode (serves the compiled `dist/` bundle via Express on `http://localhost:3000` without launching Vite's dev server; run `npm run build` first):
+```bash
+npm run build
+npm start
+```
+
 - The deterministic UMFP core (`src/umfp-core/*`) and all passport inspection/comparison tabs run completely locally without any API key.
-- Optional exploratory AI commentary endpoints (`/api/umfp/audit`, `/api/umfp/compare` in `server.ts`) require `GEMINI_API_KEY` (see `.env.example`) and always mark their output `aiProposed: true, verificationStatus: "unverified"`.
+- Optional exploratory AI commentary endpoints (`/api/umfp/audit`, `/api/umfp/compare` in `server.ts`) require `GEMINI_API_KEY` (see `.env.example`), return `503` gracefully if unconfigured, and always mark their output `aiProposed: true, verificationStatus: "unverified"`.
 
 ---
 
 ## 9. Current Development Stage (`0.1.x`)
 
-UMFP is an **early-stage pre-release research core (`0.1.x`)** — not `1.0.0`.
+UMFP is an **experimental pre-release research project (`0.1.x`) under active development and calibration** — not `1.0.0`. See [`docs/RESEARCH_STATUS.md`](./docs/RESEARCH_STATUS.md) for the full release status note.
 
 | Stage | Scope | Status |
 | :--- | :--- | :--- |
 | **Core & Constant Registry** | RAW/NORMALIZED AST, 10 constructs, Constant Registry, A/B/C levels, comparator | Implemented & Verified |
 | **Stage 1 (Q2)** | Free/bound variable classification, `variableScopes`, lexical shadowing | **Completed & Accepted** |
 | **Stage 2 (Q3)** | Number domain provenance (`requested` / `required` / `effective`) | **Implemented & Verified** (`123/123` Golden Tests passing) |
+| **Insight Bank (`0.1.x` Seed)** | Standalone Markdown landmark library (`PTH-001`–`PTH-005`, `GEO-PYT-002`) | **Initial Pilot Seed — Under Calibration** |
 | **Stage 3 (Q4)** | Fractional & undefined radical index metadata (`1/2`, `1/0`) and index traversal cleanup | **Specified only — NOT yet implemented** |
 | **Future (`0.2+`)** | Symbolic CAS / solver capabilities & broader domain extensions | Deferred (pending authorization) |
 
 ---
 
-## License
+## 10. AI Agent Usage & Research Freedom
 
-> **Notice for Repository Maintainers:** No `LICENSE` file is currently present in this repository. Please select and add an explicit license file before public GitHub distribution.
+### 10.1 Primary Principle
+UMFP is an open research and engineering instrument. Mathematical formulas, theorems, constants, and relationships themselves belong to mathematics, not to UMFP. AI agents, automated pipelines, and human researchers are free to use UMFP passports to organize, analyze, and reason about mathematical expressions in any independent or downstream research workflow.
+
+### 10.2 Permitted Scenarios
+Without requesting special permission, AI agents and researchers may use UMFP `0.1.x` for:
+- **Formula orientation and structural triage** before invoking symbolic solvers, proof assistants, or literature search;
+- **Separating surface notation from normalized structure** (`RAW AST` vs `NORMALIZED AST`), free vs bound variables (Q2), and number-domain provenance (Q3);
+- **Contextualizing formulas in papers, textbooks, and codebases** alongside explicit domain constraints (`nonzero_denominator`, `radicand_domain`, `domain_unknown`) and `UNKNOWN` markers;
+- **Comparing expressions** across structural relation, logical organization, and conservative mathematical equivalence;
+- **Referencing Insight Bank landmarks** (`insight-bank/`) as curated orientation hints while independently verifying applicability conditions.
+
+### 10.3 Integration Freedom
+- Call `generatePassport`, `comparePassports`, or `compareExpressions` directly as a local TypeScript module inside agent toolchains or evaluation harnesses.
+- Combine deterministic UMFP passports with external CAS tools, formal proof checkers, retrieval pipelines, or domain-specific ontologies without modifying `src/umfp-core/`.
+- Keep any optional exploratory LLM commentary strictly separated from deterministic passport fields (`aiProposed: true, verificationStatus: "unverified"`).
+
+### 10.4 `FormulaPassport` as Context Preservation
+A `FormulaPassport` acts as a structured, reproducible snapshot of what was parsed (`rawAst`, `normalizedAst`), what structural constructs and variables were detected (`freeVariables`, `boundVariables`, `variableScopes`), which constants and number-domain requirements apply (`requestedNumberDomain`, `requiredNumberDomain`, `effectiveNumberDomain`), and what remained uncertain (`diagnostics`, `validationErrors`, `UNKNOWN`). Preserving the passport alongside downstream reasoning keeps later steps anchored to explicit assumptions instead of silent re-guessing. *(Note: Optional external catalog/provenance fields discussed for future workflows — such as `formula_id`, `formula_version`, `passport_version`, `source_type`, or `source_reference` — are **not** implemented in `0.1.x` `umfp-core` and remain non-implemented future ideas only.)*
+
+### 10.5 Mass Passportization & Local Catalogs
+Researchers and agents may batch-run `generatePassport` over local formula corpora to build private or shared JSON catalogs and regression benchmarks (see [`docs/FORMULA_CATALOG.md`](./docs/FORMULA_CATALOG.md) for a reproducible 24-formula catalog generated directly from `src/umfp-core/`). Catalogs should record the `umfpVersion` and `ParseContext` used so every passport remains reproducible.
+
+### 10.6 Reliability Boundaries
+Using UMFP responsibly requires preserving these non-negotiable boundaries:
+- **`Structural Classification != Mathematical Proof`:** Assigning `FRACTION`, `RATIONAL_EXPRESSION`, or `ALGEBRA` describes syntax and organization, not theorem validity.
+- **`Passport Reproducibility != Mathematical Truth`:** Generating identical `FormulaPassport` JSON across runs confirms deterministic software behavior, not mathematical truth of the input formula.
+- **`Numeric Sampling != Formal Proof`:** `mathematicalEquivalence.status === 'numerically_supported'` (`proofMethod: 'numeric_sampling'`) means no counterexample was found on the deterministic real sample table — it is **not** a formal algebraic proof.
+- **`Insight Bank Entry != Universal Guarantee`:** Credibility labels (`VERIFIED`, `DERIVED`, `CONJECTURE`, `ANALOGY`) are distinct, and `ANALOGY` never implies equivalence.
+- **`AI Hypothesis != Deterministic Core`:** Output from `/api/umfp/audit` or `/api/umfp/compare` is always unverified exploratory commentary.
+
+### 10.7 Apache-2.0 Attribution & Scope Clarification
+The **Apache License, Version 2.0** ([`./LICENSE`](./LICENSE)) governs the UMFP software implementation, UI, and repository documentation. Consistent with Apache-2.0, you are free to use, modify, and redistribute the software under its license terms (retaining copyright, license, and notice attributions where required). **This license applies to the UMFP codebase and artifacts — it does not assert ownership or copyright restrictions over mathematical formulas, theorems, proofs, or independent research results produced using UMFP.**
+
+### 10.8 Project Philosophy
+> *"UMFP does not claim ownership of mathematical ideas. It provides a common structural language for describing mathematical formulas — freely usable by AI agents and researchers in their own work."*
+
+---
+
+## 11. License
+
+Licensed under the **Apache License, Version 2.0** — see [`./LICENSE`](./LICENSE) for the full license text.
+
+- Package metadata (`package.json`): `"license": "Apache-2.0"`
+- Source files carry `SPDX-License-Identifier: Apache-2.0`
+- As stated in Section 10.7, Apache-2.0 applies to the UMFP software and repository files, not to mathematical ideas, formulas, or independent research outputs.
+

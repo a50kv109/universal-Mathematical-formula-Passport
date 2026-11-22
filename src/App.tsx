@@ -116,7 +116,7 @@ export default function App() {
   const labels = {
     ru: {
       brand: 'UMFP-Lab',
-      version: '0.1.x — Constant Registry Integration Candidate',
+      version: '0.1.x — Experimental Research Release',
       subtitle: 'Детерминированное математическое ядро и композиционная паспортизация',
       tabLab: 'Инспектор паспортов',
       tabParser: 'Парсер и Тесты',
@@ -165,7 +165,7 @@ export default function App() {
     },
     en: {
       brand: 'UMFP-Lab',
-      version: '0.1.x — Constant Registry Integration Candidate',
+      version: '0.1.x — Experimental Research Release',
       subtitle: 'Deterministic Mathematical Core & Compositional Formula Passports',
       tabLab: 'Passport Inspector',
       tabParser: 'Parser & Tests',
@@ -935,8 +935,8 @@ export default function App() {
                   </h2>
                   <p className="text-xs text-slate-400 mt-0.5">
                     {lang === 'ru'
-                      ? '14 конструктов, 11 проверок дробей, 5 M1-регрессий, 23 Recovery-теста и 30 проверок Constant Registry.'
-                      : 'Verifies 14 constructs, 11 fraction checks, 5 M1 AST regressions, 23 Recovery checks, and 30 Constant Registry tests.'}
+                      ? '123 детерминированных теста: 14 конструктов, 11 проверок дробей, 5 M1-регрессий, Recovery, Constant Registry, Q2 (области видимости) и Q3 (числовые домены).'
+                      : '123 deterministic tests: 14 constructs, 11 fraction checks, 5 M1 regressions, recovery checks, Constant Registry, Q2 variable scopes, and Q3 number domains.'}
                   </p>
                 </div>
                 <button
@@ -1474,12 +1474,12 @@ export default function App() {
           <div className="bg-[#0e1422] border border-slate-800 rounded-lg p-6 flex flex-col gap-6 max-w-4xl">
             <div className="border-b border-slate-800 pb-4">
               <div className="text-xs font-mono text-cyan-400">
-                UMFP SPECIFICATION · v0.1.x — Constant Registry Integration Candidate
+                UMFP SPECIFICATION · v0.1.x — Experimental Research Release
               </div>
               <h2 className="text-xl font-semibold text-white mt-1">
                 {lang === 'ru'
-                  ? 'Универсальный паспорт математической формулы (UMFP 0.1.x — Constant Registry Integration Candidate)'
-                  : 'Universal Mathematical Formula Passport (UMFP 0.1.x — Constant Registry Integration Candidate)'}
+                  ? 'Универсальный паспорт математической формулы (UMFP 0.1.x — Experimental Research Release)'
+                  : 'Universal Mathematical Formula Passport (UMFP 0.1.x — Experimental Research Release)'}
               </h2>
             </div>
 
