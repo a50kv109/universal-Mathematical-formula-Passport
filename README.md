@@ -1,12 +1,15 @@
 # UMFP — Universal Mathematical Formula Passport (`0.1.x`)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24448675.svg)](https://doi.org/10.5281/zenodo.24448675)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE)
+
 **Project status:** Experimental Research Release (`0.1.x` / Pre-release / Under Calibration)
 
 > **UMFP — Universal Mathematical Formula Passport is an experimental system that helps AI agents identify, structurally classify, and contextualize mathematical formulas. Its Insight Bank provides a compact collection of mathematically verified and derived reference patterns that support further investigation without claiming to be a final source of mathematical truth.**
 >
 > **UMFP does not claim ownership of mathematical ideas. It provides a common structural language for describing mathematical formulas — freely usable by AI agents and researchers in their own work.**
 
-[Русская версия (README.ru.md)](./README.ru.md) · [Research Status](./docs/RESEARCH_STATUS.md) · [Project Purpose](./docs/PROJECT_PURPOSE.md) · [Architecture](./docs/ARCHITECTURE.md) · [Specification](./docs/SPECIFICATION.md) · [Roadmap](./docs/ROADMAP.md) · [Formula Catalog (24 Verified Examples)](./docs/FORMULA_CATALOG.md) · [Insight Bank](./insight-bank/README.md) · [License (Apache-2.0)](./LICENSE)
+[Русская версия (README.ru.md)](./README.ru.md) · [Zenodo Preprint (DOI: 10.5281/zenodo.24448675)](https://doi.org/10.5281/zenodo.24448675) · [Research Status](./docs/RESEARCH_STATUS.md) · [Project Purpose](./docs/PROJECT_PURPOSE.md) · [Architecture](./docs/ARCHITECTURE.md) · [Specification](./docs/SPECIFICATION.md) · [Roadmap](./docs/ROADMAP.md) · [Formula Catalog (24 Verified Examples)](./docs/FORMULA_CATALOG.md) · [Insight Bank](./insight-bank/README.md) · [License (Apache-2.0)](./LICENSE)
 
 ---
 
@@ -225,4 +228,36 @@ Licensed under the **Apache License, Version 2.0** — see [`./LICENSE`](./LICEN
 - Package metadata (`package.json`): `"license": "Apache-2.0"`
 - Source files carry `SPDX-License-Identifier: Apache-2.0`
 - As stated in Section 10.7, Apache-2.0 applies to the UMFP software and repository files, not to mathematical ideas, formulas, or independent research outputs.
+
+---
+
+## 12. Preprint & Citation
+
+The conceptual foundations and technical architecture of UMFP are published on Zenodo as an open-access preprint:
+
+- **Title:** *Universal Mathematical Formula Passport (UMFP): A Structural and Domain-Oriented Representation Layer for AI-Assisted Mathematical Workflows*
+- **Author:** Andrey Artsybashev ([@a50kv109](https://github.com/a50kv109))
+- **Zenodo DOI:** [10.5281/zenodo.24448675](https://doi.org/10.5281/zenodo.24448675) *(Concept DOI: [10.5281/zenodo.24448674](https://doi.org/10.5281/zenodo.24448674))*
+- **Repository Snapshot Commit:** [`1816b476560a548eb8eb9a2d12fb58dc1af124dd`](https://github.com/a50kv109/universal-Mathematical-formula-Passport/commit/1816b476560a548eb8eb9a2d12fb58dc1af124dd)
+- **Publication Date:** November 22, 2026
+- **Preprint License:** [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
+
+### APA Citation
+```text
+Artsybashev, A. (2026). Universal Mathematical Formula Passport (UMFP): A Structural and Domain-Oriented Representation Layer for AI-Assisted Mathematical Workflows (Version v1.0-preprint). Zenodo. https://doi.org/10.5281/zenodo.24448675
+```
+
+### BibTeX
+```bibtex
+@article{artsybashev2026umfp,
+  author       = {Artsybashev, Andrey},
+  title        = {{Universal Mathematical Formula Passport (UMFP): A Structural and Domain-Oriented Representation Layer for AI-Assisted Mathematical Workflows}},
+  year         = {2026},
+  publisher    = {Zenodo},
+  version      = {v1.0-preprint},
+  doi          = {10.5281/zenodo.24448675},
+  url          = {https://doi.org/10.5281/zenodo.24448675}
+}
+```
+
 

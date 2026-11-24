@@ -1,5 +1,8 @@
 # UMFP — Universal Mathematical Formula Passport (`0.1.x`)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24448675.svg)](https://doi.org/10.5281/zenodo.24448675)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE)
+
 **Project status:** Experimental Research Release (`0.1.x` / Pre-release / Under Calibration — *экспериментальная исследовательская версия в процессе калибровки*)
 
 > **UMFP — Universal Mathematical Formula Passport is an experimental system that helps AI agents identify, structurally classify, and contextualize mathematical formulas. Its Insight Bank provides a compact collection of mathematically verified and derived reference patterns that support further investigation without claiming to be a final source of mathematical truth.**
@@ -10,7 +13,7 @@
 >
 > *UMFP не претендует на владение математическими идеями. Он предоставляет единый структурный язык описания математических формул — свободно доступный ИИ-агентам и исследователям в их собственной работе.*
 
-[English Version (README.md)](./README.md) · [Статус исследования](./docs/RESEARCH_STATUS.md) · [Назначение и философия](./docs/PROJECT_PURPOSE.md) · [Архитектура](./docs/ARCHITECTURE.md) · [Спецификация](./docs/SPECIFICATION.md) · [Дорожная карта](./docs/ROADMAP.md) · [Каталог формул (24 проверенных примера)](./docs/FORMULA_CATALOG.md) · [Insight Bank](./insight-bank/README.md) · [Лицензия (Apache-2.0)](./LICENSE)
+[English Version (README.md)](./README.md) · [Zenodo Препринт (DOI: 10.5281/zenodo.24448675)](https://doi.org/10.5281/zenodo.24448675) · [Статус исследования](./docs/RESEARCH_STATUS.md) · [Назначение и философия](./docs/PROJECT_PURPOSE.md) · [Архитектура](./docs/ARCHITECTURE.md) · [Спецификация](./docs/SPECIFICATION.md) · [Дорожная карта](./docs/ROADMAP.md) · [Каталог формул (24 проверенных примера)](./docs/FORMULA_CATALOG.md) · [Insight Bank](./insight-bank/README.md) · [Лицензия (Apache-2.0)](./LICENSE)
 
 ---
 
@@ -229,4 +232,36 @@ UMFP — открытый исследовательский и инженерн
 - В `package.json` указано `"license": "Apache-2.0"`
 - Исходные файлы содержат заголовки `SPDX-License-Identifier: Apache-2.0`
 - Как уточнено в разделе 10.7, Apache-2.0 покрывает программный код и материалы репозитория UMFP, но не математические идеи, формулы и независимые научные результаты.
+
+---
+
+## 12. Препринт и цитирование
+
+Концептуальные основы и архитектура UMFP опубликованы в открытом доступе на Zenodo в виде исследовательского препринта:
+
+- **Название:** *Универсальный паспорт математических формул (UMFP): структурный и предметно-ориентированный слой представления для математических рабочих процессов с использованием ИИ*
+- **Автор:** Андрей Арцыбашев ([@a50kv109](https://github.com/a50kv109))
+- **Zenodo DOI:** [10.5281/zenodo.24448675](https://doi.org/10.5281/zenodo.24448675) *(Concept DOI: [10.5281/zenodo.24448674](https://doi.org/10.5281/zenodo.24448674))*
+- **Снимок репозитория (Commit Snapshot):** [`1816b476560a548eb8eb9a2d12fb58dc1af124dd`](https://github.com/a50kv109/universal-Mathematical-formula-Passport/commit/1816b476560a548eb8eb9a2d12fb58dc1af124dd)
+- **Дата публикации:** 22 ноября 2026 г.
+- **Лицензия препринта:** [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
+
+### Библиографическая ссылка (APA)
+```text
+Арцыбашев, А. (2026). Универсальный паспорт математических формул (UMFP): структурный и предметно-ориентированный слой представления для математических рабочих процессов с использованием ИИ (версия v1.0-препринт). Zenodo. https://doi.org/10.5281/zenodo.24448675
+```
+
+### BibTeX
+```bibtex
+@article{artsybashev2026umfp,
+  author       = {Artsybashev, Andrey},
+  title        = {{Universal Mathematical Formula Passport (UMFP): A Structural and Domain-Oriented Representation Layer for AI-Assisted Mathematical Workflows}},
+  year         = {2026},
+  publisher    = {Zenodo},
+  version      = {v1.0-preprint},
+  doi          = {10.5281/zenodo.24448675},
+  url          = {https://doi.org/10.5281/zenodo.24448675}
+}
+```
+
 
