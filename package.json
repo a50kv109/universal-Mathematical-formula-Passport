@@ -10,6 +10,7 @@
     "build": "vite build && tsc --project tsconfig.json",
     "start": "NODE_ENV=production node server.ts",
     "test": "tsx -e \"import { runAllGoldenTests } from './src/umfp-core/golden-tests'; const s = runAllGoldenTests(); console.log(s.passed + '/' + s.total, 'failed=' + s.failed); if (s.failed) process.exit(1);\"",
+    "test:semantic": "tsx -e \"import { runSemanticExtensionTests } from './src/umfp-semantic/semantic-tests'; const s = runSemanticExtensionTests(); console.log(s.passed + '/' + s.total, 'failed=' + s.failed); if (s.failed) process.exit(1);\"",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit"
   },

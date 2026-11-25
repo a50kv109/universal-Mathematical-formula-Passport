@@ -13,7 +13,7 @@
 >
 > *UMFP не претендует на владение математическими идеями. Он предоставляет единый структурный язык описания математических формул — свободно доступный ИИ-агентам и исследователям в их собственной работе.*
 
-[English Version (README.md)](./README.md) · [Zenodo Препринт (DOI: 10.5281/zenodo.24448675)](https://doi.org/10.5281/zenodo.24448675) · [Статус исследования](./docs/RESEARCH_STATUS.md) · [Назначение и философия](./docs/PROJECT_PURPOSE.md) · [Архитектура](./docs/ARCHITECTURE.md) · [Спецификация](./docs/SPECIFICATION.md) · [Дорожная карта](./docs/ROADMAP.md) · [Каталог формул (24 проверенных примера)](./docs/FORMULA_CATALOG.md) · [Insight Bank](./insight-bank/README.md) · [Лицензия (Apache-2.0)](./LICENSE)
+[English Version (README.md)](./README.md) · [Zenodo Препринт (DOI: 10.5281/zenodo.24448675)](https://doi.org/10.5281/zenodo.24448675) · [Статус исследования](./docs/RESEARCH_STATUS.md) · [Назначение и философия](./docs/PROJECT_PURPOSE.md) · [Архитектура](./docs/ARCHITECTURE.md) · [Спецификация](./docs/SPECIFICATION.md) · [Дорожная карта](./docs/ROADMAP.md) · [Каталог формул (24 проверенных примера)](./docs/FORMULA_CATALOG.md) · [Insight Bank](./insight-bank/README.md) · [Экспериментальная ветка (`v0.1.1-semantic-ext`)](./docs/experimental/semantic-transparency-v0.1.1/EXPERIMENTAL_README.md) · [Лицензия (Apache-2.0)](./LICENSE)
 
 ---
 
@@ -146,6 +146,17 @@ npm install
 ```bash
 npm test
 ```
+
+Опциональный запуск тестов совместимого расширения семантической прозрачности (`src/umfp-semantic/`, см. [`docs/SEMANTIC_TRANSPARENCY.md`](./docs/SEMANTIC_TRANSPARENCY.md)):
+```bash
+npm run test:semantic
+```
+
+### Независимое исследование экспериментальной ветки (`experimental/semantic-transparency-v0.1.1`)
+В этой экспериментальной (не объединённой с `main`) ветке размещено расширение `src/umfp-semantic/` (`0.1.1-semantic-ext`) для внешнего аудита и воспроизводимых экспериментов без изменения ядра `src/umfp-core/`:
+- **Точка входа для исследователя:** [`docs/experimental/semantic-transparency-v0.1.1/EXPERIMENTAL_README.md`](./docs/experimental/semantic-transparency-v0.1.1/EXPERIMENTAL_README.md) и паспорт ветки [`EXPERIMENTAL_BRANCH.md`](./docs/experimental/semantic-transparency-v0.1.1/EXPERIMENTAL_BRANCH.md)
+- **Протокол, ограничения и история:** [`INDEPENDENT_TESTING_PROTOCOL.md`](./docs/experimental/semantic-transparency-v0.1.1/INDEPENDENT_TESTING_PROTOCOL.md), [`KNOWN_LIMITATIONS.md`](./docs/experimental/semantic-transparency-v0.1.1/KNOWN_LIMITATIONS.md), [`CHANGELOG.md`](./docs/experimental/semantic-transparency-v0.1.1/CHANGELOG.md)
+- **Шаблон отчёта:** оформите результаты проверки и контрпримеры по [`INDEPENDENT_REVIEW_TEMPLATE.md`](./docs/experimental/semantic-transparency-v0.1.1/INDEPENDENT_REVIEW_TEMPLATE.md)
 
 ### Проверка TypeScript и production-сборка
 ```bash

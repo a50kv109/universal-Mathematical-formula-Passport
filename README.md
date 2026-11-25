@@ -9,7 +9,7 @@
 >
 > **UMFP does not claim ownership of mathematical ideas. It provides a common structural language for describing mathematical formulas — freely usable by AI agents and researchers in their own work.**
 
-[Русская версия (README.ru.md)](./README.ru.md) · [Zenodo Preprint (DOI: 10.5281/zenodo.24448675)](https://doi.org/10.5281/zenodo.24448675) · [Research Status](./docs/RESEARCH_STATUS.md) · [Project Purpose](./docs/PROJECT_PURPOSE.md) · [Architecture](./docs/ARCHITECTURE.md) · [Specification](./docs/SPECIFICATION.md) · [Roadmap](./docs/ROADMAP.md) · [Formula Catalog (24 Verified Examples)](./docs/FORMULA_CATALOG.md) · [Insight Bank](./insight-bank/README.md) · [License (Apache-2.0)](./LICENSE)
+[Русская версия (README.ru.md)](./README.ru.md) · [Zenodo Preprint (DOI: 10.5281/zenodo.24448675)](https://doi.org/10.5281/zenodo.24448675) · [Research Status](./docs/RESEARCH_STATUS.md) · [Project Purpose](./docs/PROJECT_PURPOSE.md) · [Architecture](./docs/ARCHITECTURE.md) · [Specification](./docs/SPECIFICATION.md) · [Roadmap](./docs/ROADMAP.md) · [Formula Catalog (24 Verified Examples)](./docs/FORMULA_CATALOG.md) · [Insight Bank](./insight-bank/README.md) · [Experimental Branch (`v0.1.1-semantic-ext`)](./docs/experimental/semantic-transparency-v0.1.1/EXPERIMENTAL_README.md) · [License (Apache-2.0)](./LICENSE)
 
 ---
 
@@ -142,6 +142,17 @@ Run all `123` deterministic core Golden Tests via `npm test`:
 ```bash
 npm test
 ```
+
+Optionally run the decoupled Semantic Transparency Extension tests (`src/umfp-semantic/`, see [`docs/SEMANTIC_TRANSPARENCY.md`](./docs/SEMANTIC_TRANSPARENCY.md)):
+```bash
+npm run test:semantic
+```
+
+### Independent Exploration of Experimental Branch (`experimental/semantic-transparency-v0.1.1`)
+This branch carries an experimental, non-merged add-on (`src/umfp-semantic/`, `0.1.1-semantic-ext`) intended for independent auditing by external AI systems and researchers while keeping `src/umfp-core/` untouched:
+- **Start here:** [`docs/experimental/semantic-transparency-v0.1.1/EXPERIMENTAL_README.md`](./docs/experimental/semantic-transparency-v0.1.1/EXPERIMENTAL_README.md) & [`EXPERIMENTAL_BRANCH.md`](./docs/experimental/semantic-transparency-v0.1.1/EXPERIMENTAL_BRANCH.md)
+- **Testing & Limits:** [`INDEPENDENT_TESTING_PROTOCOL.md`](./docs/experimental/semantic-transparency-v0.1.1/INDEPENDENT_TESTING_PROTOCOL.md), [`KNOWN_LIMITATIONS.md`](./docs/experimental/semantic-transparency-v0.1.1/KNOWN_LIMITATIONS.md), and [`CHANGELOG.md`](./docs/experimental/semantic-transparency-v0.1.1/CHANGELOG.md)
+- **Submit audit findings:** Use [`INDEPENDENT_REVIEW_TEMPLATE.md`](./docs/experimental/semantic-transparency-v0.1.1/INDEPENDENT_REVIEW_TEMPLATE.md) to report verified behaviors, reproducible counterexamples, and defects.
 
 ### TypeScript Check & Production Build
 ```bash
