@@ -9,7 +9,7 @@
 >
 > **UMFP does not claim ownership of mathematical ideas. It provides a common structural language for describing mathematical formulas — freely usable by AI agents and researchers in their own work.**
 
-[Русская версия (README.ru.md)](./README.ru.md) · [Zenodo Preprint (DOI: 10.5281/zenodo.24448675)](https://doi.org/10.5281/zenodo.24448675) · [Research Status](./docs/RESEARCH_STATUS.md) · [Project Purpose](./docs/PROJECT_PURPOSE.md) · [Architecture](./docs/ARCHITECTURE.md) · [Specification](./docs/SPECIFICATION.md) · [Roadmap](./docs/ROADMAP.md) · [Formula Catalog (24 Verified Examples)](./docs/FORMULA_CATALOG.md) · [Insight Bank](./insight-bank/README.md) · [Experimental Branch (`v0.1.1-semantic-ext`)](./docs/experimental/semantic-transparency-v0.1.1/EXPERIMENTAL_README.md) · [License (Apache-2.0)](./LICENSE)
+[Русская версия (README.ru.md)](./README.ru.md) · [Zenodo Preprint (DOI: 10.5281/zenodo.24448675)](https://doi.org/10.5281/zenodo.24448675) · [Research Status](./docs/RESEARCH_STATUS.md) · [Project Purpose](./docs/PROJECT_PURPOSE.md) · [Architecture](./docs/ARCHITECTURE.md) · [Specification](./docs/SPECIFICATION.md) · [Roadmap](./docs/ROADMAP.md) · [Formula Catalog (24 Verified Examples)](./docs/FORMULA_CATALOG.md) · [Insight Bank](./insight-bank/README.md) · [Canonical Notation Guidance (Issue #1)](./docs/CANONICAL_NOTATION_GUIDANCE.md) · [Experimental Branch (`v0.1.1-semantic-ext`)](./docs/experimental/semantic-transparency-v0.1.1/EXPERIMENTAL_README.md) · [License (Apache-2.0)](./LICENSE)
 
 ---
 

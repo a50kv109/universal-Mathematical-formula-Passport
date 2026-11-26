@@ -13,7 +13,7 @@
 >
 > *UMFP не претендует на владение математическими идеями. Он предоставляет единый структурный язык описания математических формул — свободно доступный ИИ-агентам и исследователям в их собственной работе.*
 
-[English Version (README.md)](./README.md) · [Zenodo Препринт (DOI: 10.5281/zenodo.24448675)](https://doi.org/10.5281/zenodo.24448675) · [Статус исследования](./docs/RESEARCH_STATUS.md) · [Назначение и философия](./docs/PROJECT_PURPOSE.md) · [Архитектура](./docs/ARCHITECTURE.md) · [Спецификация](./docs/SPECIFICATION.md) · [Дорожная карта](./docs/ROADMAP.md) · [Каталог формул (24 проверенных примера)](./docs/FORMULA_CATALOG.md) · [Insight Bank](./insight-bank/README.md) · [Экспериментальная ветка (`v0.1.1-semantic-ext`)](./docs/experimental/semantic-transparency-v0.1.1/EXPERIMENTAL_README.md) · [Лицензия (Apache-2.0)](./LICENSE)
+[English Version (README.md)](./README.md) · [Zenodo Препринт (DOI: 10.5281/zenodo.24448675)](https://doi.org/10.5281/zenodo.24448675) · [Статус исследования](./docs/RESEARCH_STATUS.md) · [Назначение и философия](./docs/PROJECT_PURPOSE.md) · [Архитектура](./docs/ARCHITECTURE.md) · [Спецификация](./docs/SPECIFICATION.md) · [Дорожная карта](./docs/ROADMAP.md) · [Каталог формул (24 проверенных примера)](./docs/FORMULA_CATALOG.md) · [Insight Bank](./insight-bank/README.md) · [Руководство по канонической нотации (Issue #1)](./docs/CANONICAL_NOTATION_GUIDANCE.md) · [Экспериментальная ветка (`v0.1.1-semantic-ext`)](./docs/experimental/semantic-transparency-v0.1.1/EXPERIMENTAL_README.md) · [Лицензия (Apache-2.0)](./LICENSE)
 
 ---
 

@@ -81,12 +81,13 @@ In a complete agent workflow, UMFP handles **local syntactic and structural grou
 
 ---
 
-## 6. Boundaries of Responsibility
+---
 
-UMFP `0.1.x` explicitly refuses to become:
-- a Computer Algebra System (CAS);
-- a theorem prover or symbolic equation solver;
-- an all-encompassing taxonomy of physics, statistics, or domain sciences;
-- a semantic authority overriding deterministic evidence (when exploratory AI endpoints are enabled in `server.ts`, their outputs are always labeled `aiProposed: true, verificationStatus: "unverified"` and never overwrite core deterministic fields).
+## 7. Proposed Extension: Canonical Notation Guidance (Issue #1)
+
+Beyond structural passportization (`src/umfp-core/`), future iterations (`0.2+`) propose **Canonical Notation Guidance** (see [`CANONICAL_NOTATION_GUIDANCE.md`](./CANONICAL_NOTATION_GUIDANCE.md)):
+- Helps AI agents recognize and recommend established mathematical conventions (e.g., Pythagorean right triangle vertex-side correspondence $a, b, c$ opposite $A, B, C$ with $\gamma = 90^\circ$) without silently overwriting the author's original notation.
+- Distinguishes **Original Notation** (verbatim source) from **Recognized Convention** and **Recommended Notation**, returning `AMBIGUOUS` or `UNAVAILABLE` when relational context is insufficient.
+- Keeps deterministic UMFP core contracts (`FormulaPassport`) strictly unchanged while providing a robust advisory profile for interactive geometry and AI reasoning workflows.
 
 **A Formula Passport is never the final answer. It is the reliable starting point for further mathematical investigation.**

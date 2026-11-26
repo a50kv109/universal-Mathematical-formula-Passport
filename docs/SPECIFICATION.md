@@ -102,3 +102,12 @@ Supported `LogicalOrganizationKind` values:
    - `canonicalExact` match + `canClaimProven` -> `status: 'proven'`, `proofMethod: 'canonical_ast_normalization'`.
    - Relations (non-identical), higher-order/unmodeled constructs, or `effectiveNumberDomain === 'COMPLEX'` -> `status: 'unknown'` (or `'not_applicable'` for distinct relations), `proofMethod: 'none' | 'not_applicable'`.
    - Real scalar expressions -> deterministic 6-point sampling over `freeVariables` -> `status: 'refuted'` (counterexample attached) or `status: 'numerically_supported'` (`proofMethod: 'numeric_sampling'`, explicitly not algebraic proof).
+
+---
+
+## 8. Proposed Extension: Canonical Notation Guidance (Issue #1 — Unimplemented Concept)
+
+As specified in [`CANONICAL_NOTATION_GUIDANCE.md`](./CANONICAL_NOTATION_GUIDANCE.md), future versions (`0.2+`) may incorporate a **Canonical Notation Profile / Notation Convention Guidance** layer.
+- **Invariants:** Does **not** modify `src/umfp-core/`, the TypeScript `FormulaPassport` contract, AST normalization, or domain classification.
+- **Purpose:** Recommends established mathematical conventions (such as right-triangle vertex-side correspondence $a, b, c$ opposite $A, B, C$ with $\gamma = 90^\circ$) while strictly preserving the author's original notation.
+- **Fallbacks:** Returns `AMBIGUOUS` or `UNAVAILABLE` when contextual evidence is insufficient.

@@ -130,5 +130,6 @@ Implemented in `types.ts`, `passport.ts`, and `equivalence.ts`:
 | Q2 (`freeVariables`, `boundVariables`, `variableScopes`) | **Implemented** |
 | Q3 (`requested/required/effectiveNumberDomain`) | **Implemented** |
 | Q4 (fractional `1/2` & undefined `1/0` radical index metadata/traversal) | **Specified only — NOT yet implemented** (see [`SPECIFICATION.md`](./SPECIFICATION.md) & [`ROADMAP.md`](./ROADMAP.md)) |
+| Canonical Notation Guidance (Issue #1 Profile / Mapping) | **Designed / Proposed (Unimplemented Concept)** (see [`CANONICAL_NOTATION_GUIDANCE.md`](./CANONICAL_NOTATION_GUIDANCE.md)) |
 | Symbolic CAS solver, ODE/PDE, multi-domain STEM taxonomy | **Out of scope for `0.1.x`** |
 | Exploratory AI audit endpoints (`server.ts`) | **Optional UI helper only** (`aiProposed: true, verificationStatus: 'unverified'`) |
